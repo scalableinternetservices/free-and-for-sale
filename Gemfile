@@ -38,6 +38,10 @@ gem 'jwt'
 
 # Debugging tool
 gem 'pry'
+gem 'rb-readline'
+
+# Allow cross domain access
+gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do
