@@ -45,6 +45,7 @@ gem 'rb-readline'
 # Image attachment and aws
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
+gem 'fog'
 gem "mini_magick"
 
 # Organization
