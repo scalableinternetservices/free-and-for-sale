@@ -8,7 +8,6 @@ class Api::V1::ProductController < Api::V1::BaseController
   end
 
   def create
-    binding.pry
     base_64_image = params[:image]
     blob = Base64.decode64(base_64_image)
     decoded_image = MiniMagick::Image.read(blob)
