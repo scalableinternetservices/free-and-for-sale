@@ -12,7 +12,8 @@ class Api::V1::AuthenticationController < Api::V1::BaseController
   def register_user
     user = User.new(registration_params)
     if user.save
-      # user.store = Store.create
+      binding.pry
+      user.store = Store.create
       success_response 201, "User registered successfully", json: payload(user)
     else
       error_response 422, "Registration failed.", user.errors.full_messages
