@@ -33,6 +33,12 @@ gem 'jbuilder', '~> 2.5'
 # Devise for users on the platform
 gem 'devise'
 
+# JWT token for token authentication
+gem 'jwt'
+
+# Debugging tool
+gem 'pry'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
