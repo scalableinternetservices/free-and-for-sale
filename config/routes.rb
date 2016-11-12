@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'auth_user' => 'authentication#authenticate_user'
       post 'register_user' => 'authentication#register_user'
-      # get 'products' => 'product#index'
-      # post 'product' => 'product#create'
+      get 'products' => 'product#index'
+      post 'product' => 'product#create'
     end
   end
 

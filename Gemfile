@@ -40,6 +40,15 @@ gem 'jwt'
 gem 'pry'
 gem 'rb-readline'
 
+# Image attachment and aws
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.3'
+gem "mini_magick"
+
+# Organization
+gem 'dotenv-rails', :groups => [:development, :test]
+
+
 # Allow cross domain access
 gem 'rack-cors', :require => 'rack/cors'
 
