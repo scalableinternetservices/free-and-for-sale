@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   belongs_to :store
+  belongs_to :user
+
   validates :name,        presence: true
   validates :description, presence: true
   validates :price,       presence: true

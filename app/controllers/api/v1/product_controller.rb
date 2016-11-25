@@ -1,9 +1,8 @@
 class Api::V1::ProductController < Api::V1::BaseController
   before_filter :authenticate_request!, :except => [:index]
 
-
   def index
-    @products = Product.all
+    @products = JSON.parse(Product.all.to_json( :include => {:user => {:only => :email } } ))
     success_response 200, "All products pulled.", products: @products
   end
 
@@ -14,6 +13,7 @@ class Api::V1::ProductController < Api::V1::BaseController
     image_file = File.open(decoded_image.path)
     @product = Product.new(product_params.merge(:image=> image_file))
     @product.store = current_user.store
+    @product.user = current_user
     if @product.save
       @product.image_url = @product.image.url
       @product.save
