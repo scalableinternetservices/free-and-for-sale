@@ -92,6 +92,6 @@ Rails.application.configure do
       :region => 'us-west-2'
     },
     :fog_directory => 'scalableinternetservices',
-    :path => 'free-and-for-sale/'
+    :path => 'free-and-for-sale/:id/:filename'
   }
 end
