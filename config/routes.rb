@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post 'register_user' => 'authentication#register_user'
       get 'products' => 'product#index'
       post 'product' => 'product#create'
+      get 'category' => 'category#show'
     end
   end
 
