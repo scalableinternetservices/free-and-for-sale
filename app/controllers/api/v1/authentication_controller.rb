@@ -13,6 +13,7 @@ class Api::V1::AuthenticationController < Api::V1::BaseController
     user = User.new(registration_params)
     if user.save
       user.store = Store.create
+      user.shopping_cart = ShoppingCart.create
       success_response 201, "User registered successfully", json: payload(user)
     else
       error_response 422, "Registration failed.", user.errors.full_messages

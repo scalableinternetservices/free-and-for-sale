@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   belongs_to :store
+  has_and_belongs_to_many :shopping_carts
   belongs_to :user
   belongs_to :category
 
