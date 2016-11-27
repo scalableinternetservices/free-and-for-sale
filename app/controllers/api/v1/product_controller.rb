@@ -12,6 +12,8 @@ class Api::V1::ProductController < Api::V1::BaseController
     decoded_image = MiniMagick::Image.read(blob)
     image_file = File.open(decoded_image.path)
     @product = Product.new(product_params.merge(:image=> image_file))
+    @category = Category.find_by(name: params[:category])
+    @product.category = @category
     @product.store = current_user.store
     @product.user = current_user
     if @product.save
@@ -26,7 +28,7 @@ class Api::V1::ProductController < Api::V1::BaseController
   private
 
   def product_params
-    params.permit(:name, :description, :price, :image, :category_id)
+    params.permit(:name, :description, :price, :image)
   end
 
 end
