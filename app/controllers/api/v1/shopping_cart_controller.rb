@@ -1,5 +1,5 @@
 class Api::V1::ShoppingCartController < Api::V1::BaseController
-  before_filter :authenticate_request!, :except => [:index]
+  before_filter :authenticate_request!
 
   def add_to_cart
     @product = Product.where(product_id: params[:product_id]).first
