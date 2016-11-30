@@ -68,25 +68,25 @@
       <!-- wait for up to 2 seconds, user is looking at posts -->
       <thinktime value="2" random="true"></thinktime>
 
-      <!-- request to register  -->   
+      <!-- request to register  -->
       <request subst="true">
-	<http
-	   url="/api/v1/category?category=Furniture"
-	   version="1.1"
-	   method="GET"
-   	>
-	</http>
+	       <http
+	          url="/api/v1/category?category=Furniture"
+	          version="1.1"
+	          method="GET"
+   	      >
+	       </http>
       </request>
 
       <!-- Wait for 2 seconds -->
       <thinktime value="2" random="true"></thinktime>
 
       <request subst="true">
-	<http 
-	    url="/api/v1/category?category=Books"
-	    version="1.1"
-	    method="GET"
-	>
+	       <http
+	          url="/api/v1/category?category=Books"
+	          version="1.1"
+	          method="GET"
+	       >
         </http>
       </request>
       <!-- wait for up to 2 seconds, user is filling out new community form -->
@@ -95,21 +95,35 @@
       <setdynvars sourcetype="random_number" start="1000" end="9999999">
     	<var name="random_email" />
       </setdynvars>
-	
+
 
       <request subst="true">
         <http
-	    url="api/v1/register_user"
-	    method="POST"
-            version="1.1"
-  	    contents="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
-	</http>
+	         url="api/v1/register_user"
+	         method="POST"
+           version="1.1"
+  	       contents="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
+	      </http>
       </request>
 
-      <!-- create a random number to make a unique community name -->
-      <setdynvars sourcetype="random_number" start="1000" end="9999999">
-        <var name="random_community_name" />
-      </setdynvars>
+      <request subst="true">
+        <http
+	         url="api/v1/auth_user"
+	         method="POST"
+           version="1.1"
+  	       contents="email%5D=tianyan%40bigger.com&amp;password%5D=11111111&amp;commit=Create+account">
+	      </http>
+      </request>
+
+      <request subst="true">
+        <http
+	         url="api/v1/product"
+	         method="POST"
+           version="1.1"
+  	       contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image_url%5D='http://cdn2.gsmarena.com/vv/pics/google/google-pixel-xl-2.jpg'&amp;commit=Create+product">
+	      </http>
+        <http_header name="Authorization" value="Bearer a3b84dd8-d8a3-4e37-9468-5244333df0e0"/>
+      </request>
 
      </session>
   </sessions>
