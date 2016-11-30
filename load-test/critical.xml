@@ -8,10 +8,10 @@
   </clients>
 
   <!-- Server side setup -->
-  <servers>
-    <server host="ec2-35-167-37-110.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
-  </servers>
 
+  <servers>
+    <server host="ec2-35-165-1-161.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+  </servers>
 
   <load>
     <arrivalphase phase="1" duration="30" unit="second">
@@ -71,10 +71,10 @@
       <!-- request to register  -->   
       <request subst="true">
 	<http
-	   url="/api/v1/category"
+	   url="/api/v1/category?category=Furniture"
 	   version="1.1"
 	   method="GET"
-   	   content="category%5D=furniture&amp;commit=See+Product">
+   	>
 	</http>
       </request>
 
@@ -83,10 +83,10 @@
 
       <request subst="true">
 	<http 
-	    url="/api/v1/category"
+	    url="/api/v1/category?category=Books"
 	    version="1.1"
 	    method="GET"
-	    content="category%5D=Books&amp;commit=See+Book">
+	>
         </http>
       </request>
       <!-- wait for up to 2 seconds, user is filling out new community form -->
@@ -102,7 +102,7 @@
 	    url="api/v1/register_user"
 	    method="POST"
             version="1.1"
-  	    content="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
+  	    contents="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
 	</http>
       </request>
 
