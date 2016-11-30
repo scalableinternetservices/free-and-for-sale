@@ -122,7 +122,7 @@
            version="1.1"
   	       contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image_url%5D='http://cdn2.gsmarena.com/vv/pics/google/google-pixel-xl-2.jpg'&amp;commit=Create+product">
 	      </http>
-        <http_header name="Authorization" value="Bearer a3b84dd8-d8a3-4e37-9468-5244333df0e0"/>
+        <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
       </request>
 
      </session>
