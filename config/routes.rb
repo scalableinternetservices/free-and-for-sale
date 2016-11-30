@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       post 'product' => 'product#create'
       get 'category' => 'category#show'
       post 'add_to_cart' => 'shopping_cart#add_to_cart'
-      get 'user' => 'user#show'
+      get 'profile' => 'profile#show'
+      get 'profile/buy' => 'profile#buy'
+      get 'profile/sell' => 'profile#sell'
     end
   end
 
