@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/home/ec2-user/opt/tsung-1.5.0/share/tsung/tsung-1.0.dtd">
+<tsung loglevel="notice" version="1.0">
+
+  <!-- Client side setup -->
+  <clients>
+    <client host="localhost" use_controller_vm="true" maxusers='15000'/>
+  </clients>
+
+  <!-- Server side setup -->
+  <servers>
+    <server host="ec2-35-167-37-110.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+  </servers>
+
+
+  <load>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users arrivalrate="0.5" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="2" duration="30" unit="second">
+      <users arrivalrate="1" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="2" unit="second"></users>
+    </arrivalphase>
+   <arrivalphase phase="4" duration="30" unit="second">
+     <users arrivalrate="4" unit="second"></users>
+   </arrivalphase>
+<!--
+   <arrivalphase phase="5" duration="30" unit="second">
+     <users arrivalrate="16" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="6" duration="30" unit="second">
+     <users arrivalrate="32" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="7" duration="30" unit="second">
+     <users arrivalrate="64" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="8" duration="30" unit="second">
+     <users arrivalrate="128" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="9" duration="30" unit="second">
+     <users arrivalrate="256" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="10" duration="30" unit="second">
+     <users arrivalrate="512" unit="second"></users>
+   </arrivalphase>
+-->
+  </load>
+
+  <options>
+    <!-- Set connection timeout to 2 seconds -->
+    <option name="global_ack_timeout" value="2000"></option>
+
+    <option type="ts_http" name="user_agent">
+      <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
+    </option>
+  </options>
+
+  <sessions>
+    <session name="user-signup" probability="100" type="ts_http">
+
+      <!-- start out at the dashboard. Look at the products -->
+      <request>
+        <http url='/api/v1/products' version='1.1' method='GET'></http>
+      </request>
+
+      <!-- wait for up to 2 seconds, user is looking at posts -->
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- request to register  -->   
+      <request subst="true">
+	<http
+	   url="/api/v1/category"
+	   version="1.1"
+	   method="GET"
+   	   content="category%5D=furniture&amp;commit=See+Product">
+	</http>
+      </request>
+
+      <!-- Wait for 2 seconds -->
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+	<http 
+	    url="/api/v1/category"
+	    version="1.1"
+	    method="GET"
+	    content="category%5D=Books&amp;commit=See+Book">
+        </http>
+      </request>
+      <!-- wait for up to 2 seconds, user is filling out new community form -->
+      <thinktime value="2" random="true"></thinktime>
+
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+    	<var name="random_email" />
+      </setdynvars>
+	
+
+      <request subst="true">
+        <http
+	    url="api/v1/register_user"
+	    method="POST"
+            version="1.1"
+  	    content="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
+	</http>
+      </request>
+
+      <!-- create a random number to make a unique community name -->
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_community_name" />
+      </setdynvars>
+
+     </session>
+  </sessions>
+</tsung>
