@@ -9,6 +9,15 @@
 Category.create([{name: 'Furniture'}, {name: 'Electronics'}, {name: 'Books'}, {name: 'Clothes'}, {name: 'Others'}])
 # User.create([email: 'a@a.a'], [email: 'b@b.b'], [email: 'c@c.c'], [email: 'd@d.d'], [email: 'e@e.e'])
 
+begin
+  Exist.create!(mutex: 1)
+rescue ActiveRecord::RecordInvalid
+  exit
+rescue ActiveRecord::RecordNotUnique
+  exit
+end
+
+
 700.times.with_index do |number|
   User.create! :email => "#{number}@gmail.com", :password => 'topsecret'
 end
