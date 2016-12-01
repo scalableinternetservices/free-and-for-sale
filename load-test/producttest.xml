@@ -74,9 +74,9 @@
         <http
 	         url="/api/v1/product"
 	         method="POST"
-                 version="1.1"
-  	         contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image_url%5D='http://cdn2.gsmarena.com/vv/pics/google/google-pixel-xl-2.jpg'&amp;commit=Create+product">
-                  <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
+           version="1.1"
+  	       contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image%5D=iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAYAAABaK9MPAAAgAElEQVR4XuxdB5hcVdl+b7936vaWXukliEgT6aI0xQIidpq/2H4U4RcrYsUCiKIoKAjYKKIiqEhRQECS0BNCSEg22b7Ty+3/8517z+7dYWZnkxAEzewzz87Mnbn1nPe+3/s1YZYu+ggfHnx4kdfspSfwxVv1XxAk9jvfn9jMlNcOJj/fqg1EfiQIk/safT3d9n0E+9fwIbgTiwQf4GdrYkvhB7SMtklvaRnfvuAHZ7ThvtEPZ/CQ2FoBkf8PfyYi2D86dFGkp8i2xZ9K+FoUJQi0TFYgiQoEib4nwVaUyf0TJPiCFOwrrQyAK0xeO34No/8F0WPX0/M8uK475T99bui0Ph+macLzLSiqzN4DHjRNg++U4Lo+HBdwbMB2RfiQAZ+ui4ihXB6JRAKiLKFYKrH1SKoCRVHgC4BZDY5fkWTIogjfdtl/WZTYfrmSwP7zJ50fekqSxP7T7/ij0TWKHi9fD/+NG17fRpeQzstMHo3mR7Pf1o7z2u9H11tvXXw8RcdodJ2ECdM9ouufGPORedhs/5vtX+35E3YA1n8GYBG+BDgzFbA0iQBDZGAlijIEWYIoKcFrQUA5HFHsd6IMhJ8L7HcCKrY1M&amp;commit=Create+product">
+            <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
         </http>
       </request>
 
