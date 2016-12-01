@@ -55,6 +55,9 @@ gem 'dotenv-rails', :groups => [:development, :test]
 # Allow cross domain access
 gem 'rack-cors', :require => 'rack/cors'
 
+# Memcached
+gem 'dalli'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
