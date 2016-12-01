@@ -2,7 +2,9 @@ class Api::V1::ProductController < Api::V1::BaseController
   before_filter :authenticate_request!, :except => [:index]
 
   def index
-    @products = JSON.parse(Product.all.to_json( :include => {:user => {:only => :email } } ))
+    @products = Rails.cache.fetch(Product.new.cache_key, expires_in: 12.hours) do
+      JSON.parse(Product.all.to_json( :include => { :user => {:only => :email } } ))
+    end
     success_response 200, "All products pulled.", products: @products
   end
 
