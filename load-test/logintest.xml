@@ -60,16 +60,20 @@
   <sessions>
     <session name="user-signup" probability="100" type="ts_http">
 
+
       <!-- start out at the dashboard. Look at the products -->
+<!--   
       <request>
         <http url='/api/v1/products' version='1.1' method='GET'></http>
       </request>
-
+-->
       <!-- wait for up to 2 seconds, user is looking at posts -->
-      <thinktime value="2" random="true"></thinktime>
-
+  <!-- 
+     <thinktime value="2" random="true"></thinktime>
+-->
       <!-- request to register  -->
-      <request subst="true">
+  <!-- 
+     <request subst="true">
 	       <http
 	          url="/api/v1/category?category=Furniture"
 	          version="1.1"
@@ -77,10 +81,11 @@
    	      >
 	       </http>
       </request>
-
+-->
       <!-- Wait for 2 seconds -->
-      <thinktime value="2" random="true"></thinktime>
-
+  <!-- 
+     <thinktime value="2" random="true"></thinktime>
+   
       <request subst="true">
 	       <http
 	          url="/api/v1/category?category=Books"
@@ -89,33 +94,35 @@
 	       >
         </http>
       </request>
+-->
       <!-- wait for up to 2 seconds, user is filling out new community form -->
-      <thinktime value="2" random="true"></thinktime>
+  <!-- 
+     <thinktime value="2" random="true"></thinktime>
 
       <setdynvars sourcetype="random_number" start="1000" end="9999999">
     	<var name="random_email" />
       </setdynvars>
 
-
       <request subst="true">
               <http
 	         url="api/v1/register_user"
 	         method="POST"
-           version="1.1"
-  	       contents="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
+                 version="1.1"
+  	         contents="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
 	      </http>
       </request>
 
-     <thinktime value="2" randome="true"></thinktime>
-     <request subst="true">
+
+     <thinktime value="2" random="true"></thinktime>
+    --> 
+    <request subst="true">
 	  <http
- 	      url="api/v1/auth_user"
+ 	      url="/api/v1/auth_user"
 	      method="POST"
 	      version="1.1"
-	      contents="email%5D=0%40gmail.com&amp;password%5D=111111&amp;commit=log+in">
+	      contents="email%5D=0%40gmail.com&amp;password%5D=topsecret&amp;commit=log+in">
+     	  </http>
      </request>
-  
-
      </session>
   </sessions>
 </tsung>

@@ -72,7 +72,7 @@
 -->
       <request subst="true">
         <http
-	         url="api/v1/product"
+	         url="/api/v1/product"
 	         method="POST"
                  version="1.1"
   	         contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image_url%5D='http://cdn2.gsmarena.com/vv/pics/google/google-pixel-xl-2.jpg'&amp;commit=Create+product">
