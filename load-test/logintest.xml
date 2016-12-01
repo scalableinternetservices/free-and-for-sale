@@ -14,16 +14,16 @@
   </servers>
 
   <load>
-    <arrivalphase phase="1" duration="30" unit="second">
+    <arrivalphase phase="1" duration="5" unit="second">
       <users arrivalrate="0.5" unit="second"></users>
     </arrivalphase>
-    <arrivalphase phase="2" duration="30" unit="second">
+    <arrivalphase phase="2" duration="5" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
-    <arrivalphase phase="3" duration="30" unit="second">
+    <arrivalphase phase="3" duration="5" unit="second">
       <users arrivalrate="2" unit="second"></users>
     </arrivalphase>
-   <arrivalphase phase="4" duration="30" unit="second">
+   <arrivalphase phase="4" duration="5" unit="second">
      <users arrivalrate="4" unit="second"></users>
    </arrivalphase>
 <!--
@@ -104,6 +104,18 @@
            version="1.1"
   	       contents="email%5D=%%_random_email%%%40gmail.com&amp;password%5D=1234567&amp;commit=Create+account">
 	      </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http
+	         url="api/v1/product"
+	         method="POST"
+           version="1.1"
+  	       contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image_url%5D='http://cdn2.gsmarena.com/vv/pics/google/google-pixel-xl-2.jpg'&amp;commit=Create+product">
+           <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
+        </http>
       </request>
 
      </session>
