@@ -65,21 +65,21 @@
       <!-- wait for up to 2 seconds, user is filling out new community form -->
       <thinktime value="2" random="true"></thinktime>
 
-
+     <!---
       <request subst="true">
         <http
-	         url="api/v1/auth_user"
+	         url="/api/v1/auth_user"
 	         method="POST"
            version="1.1"
   	       contents="email%5D=tianyan%40bigger.com&amp;password%5D=11111111&amp;commit=Log+in+account">
 	      </http>
       </request>
-
+-->
       <thinktime value="2" random="true"></thinktime>
 
       <request subst="true">
         <http
-	         url="api/v1/profile"
+	         url="/api/v1/profile"
 	         method="GET"
            version="1.1">
            <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
@@ -90,7 +90,7 @@
 
       <request subst="true">
         <http
-	         url="api/v1/profile/buy"
+	         url="/api/v1/profile/buy"
 	         method="GET"
            version="1.1">
            <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
@@ -101,7 +101,7 @@
 
       <request subst="true">
         <http
-	         url="api/v1/profile/sell"
+	         url="/api/v1/profile/sell"
 	         method="GET"
            version="1.1">
            <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
