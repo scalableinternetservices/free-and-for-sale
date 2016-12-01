@@ -75,7 +75,7 @@
 	         url="/api/v1/product"
 	         method="POST"
            version="1.1"
-  	       contents="name%5D=google+pixel&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image%5D=R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs&amp;commit=Create+product">
+  	       contents="name%5D=google+pixel&amp;category%5D=Furniture&amp;description%5D=best+smart+phone+right+now&amp;price%5D=654&amp;image%5D=R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs&amp;commit=Create+product">
           <http_header name="Authorization" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.XJkfgPWPC4g9WeJ2yGoHUmda1h0r14vJXCLhyHzYxTA"/>
         </http>
       </request>
