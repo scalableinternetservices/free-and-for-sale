@@ -19,13 +19,14 @@ end
 
 
 700.times.with_index do |number|
-  User.create! :email => "#{number}@gmail.com", :password => 'topsecret'
+  @user = User.create! :email => "#{number}@gmail.com", :password => 'topsecret'
+  @shopping_cart = ShoppingCart.create! :user_id => @user.id
+  @store = Store.create! :user_id => @user.id
 end
 
 File.open("db/image_list.txt", "r").each_line.with_index do |line, line_number|
   @user = User.where(email: "#{line_number}@gmail.com").first
-  @store = Store.create! :user_id => @user.id
   @category_id = line_number%5 + 1
   @product = Product.create! :name => "product #{line_number}", :description => 'this is a test image', 
-  :price => 100, :image_url => "#{line}", :user_id => @user.id, :category_id => @category_id, :store_id => @store.id  
+  :price => 100, :image_url => "#{line}", :user_id => @user.id, :category_id => @category_id, :store_id => @user.store.id  
 end
